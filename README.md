@@ -93,4 +93,37 @@ This project uses SQLite as its database, with SQLAlchemy as the ORM and Flask-M
   ```bash
   flask db migrate -m "Describe your changes"
   flask db upgrade
+  ```
+
+## Project Structure
+
+```
+ university-management-system/
+ ├── app.py             # Main application entry point
+ ├── models.py          # Database models
+ ├── routes.py          # Application routes
+ ├── templates/         # HTML templates
+ ├── static/            # Static files (CSS, JS)
+ ├── migrations/        # Database migrations
+ ├── requirements.txt   # Python dependencies
+ ├── README.md          # Project documentation
+```
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m "Add new feature"`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Acknowledgements
+
+Special thanks to all contributors and open-source libraries that made this project possible.
 
