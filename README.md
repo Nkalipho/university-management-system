@@ -93,3 +93,4 @@ This project uses SQLite as its database, with SQLAlchemy as the ORM and Flask-M
   ```bash
   flask db migrate -m "Describe your changes"
   flask db upgrade
+
