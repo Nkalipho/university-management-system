@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white shadow rounded-lg p-6 max-w-2xl mx-auto animate__animated animate__fadeIn">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Add Course</h2>
+    <form method="POST" class="space-y-6">
+        <div>
+            <label for="course_name" class="block text-sm font-medium text-gray-700">Course Name</label>
+            <input type="text" name="course_name" id="course_name" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+        </div>
+        <div>
+            <label for="course_code" class="block text-sm font-medium text-gray-700">Course Code</label>
+            <input type="text" name="course_code" id="course_code" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+        </div>
+        <div>
+            <label for="max_capacity" class="block text-sm font-medium text-gray-700">Max Capacity</label>
+            <input type="number" name="max_capacity" id="max_capacity" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+        </div>
+        <div>
+            <label for="faculty_id" class="block text-sm font-medium text-gray-700">Faculty</label>
+            <select name="faculty_id" id="faculty_id" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                {% for faculty in faculties %}
+                <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit"
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white gradient-button">
+            Add Course
+        </button>
+    </form>
+</div>
+{% endblock %}

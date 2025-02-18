@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <!-- Updated header using Tailwind CSS -->
+                <div class="card-header">
+                    <h2 class="text-3xl font-bold gradient-text mb-6">Course Management</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead">
+                        View and manage all courses offered by the university.
+                    </p>
+                    <div class="mb-3">
+                        <a href="{{ url_for('add_course') }}" class="btn btn-success">
+                            <i class="fas fa-plus-circle"></i> Add New Course
+                        </a>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="courses-table" class="table table-striped table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Course Name</th>
+                                    <th>Course Code</th>
+                                    <th>Capacity</th>
+                                    <th>Enrolled</th>
+                                    <th>Department</th>
+                                    <th>Faculty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in courses %}
+                                <tr>
+                                    <td>{{ course.id }}</td>
+                                    <td>{{ course.course_name }}</td>
+                                    <td>{{ course.course_code }}</td>
+                                    <td>{{ course.max_capacity }}</td>
+                                    <td>{{ course.students_enrolled.count() }}</td>
+                                    <td>{{ course.department.name if course.department else 'N/A' }}</td>
+                                    <td>
+                                        {% if course.faculty %}
+                                        <div>
+                                            {{ course.faculty.name }}
+                                        </div>
+                                        <small class="text-muted">
+                                            ({{ course.faculty.dean }})
+                                        </small>
+                                        {% else %}
+                                        Unassigned
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        $('#courses-table').DataTable({
+            "pageLength": 10,
+            "responsive": true
+        });
+    });
+</script>
+{% endblock %}

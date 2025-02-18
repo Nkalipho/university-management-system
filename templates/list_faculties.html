@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="glass-card p-6 rounded-xl shadow-md">
+    <h2 class="text-3xl font-bold gradient-text mb-6">Faculties</h2>
+    
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Faculty Name</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dean</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Number of Staff</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Number of Courses</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for f in faculties %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ f.name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ f.dean }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ f.staff|length }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ f.courses|length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

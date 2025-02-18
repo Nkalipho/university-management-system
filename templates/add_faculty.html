@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Add Faculty</h2>
+<form method="POST">
+  <div class="form-group">
+    <label for="name">Faculty Name:</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="dean">Dean:</label>
+    <input type="text" class="form-control" name="dean" required>
+  </div>
+  <div class="form-group">
+    <label for="staff_ids">Assign Staff:</label>
+    <select class="form-control" name="staff_ids" multiple>
+      {% for s in staff %}
+      <option value="{{ s.id }}">{{ s.name }} ({{ s.role }})</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="course_ids">Assign Courses:</label>
+    <select class="form-control" name="course_ids" multiple>
+      {% for c in courses %}
+      <option value="{{ c.id }}">{{ c.course_name }} ({{ c.course_code }})</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Faculty</button>
+</form>
+{% endblock %}
