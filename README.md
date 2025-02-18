@@ -41,8 +41,8 @@ University Management System is designed to help administrators manage universit
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/university-management.git
-    cd university-management
+    git clone https://github.com/Nkalipho/university-management-system.git
+    cd university-management-system
     ```
 
 2. **Create and activate a virtual environment:**
